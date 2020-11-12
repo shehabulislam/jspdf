@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
+    <script src="js/jspdf.umd.min.js"></script>
+    <script src="js/jspdf.min.js"></script>
+</head>
+<body>
+    <div id="content" style="width:210mm">
+        <h1>Shehabul Islam Raju</h1>
+        <!-- <img src="https://freepikpsd.com/wp-content/uploads/2019/09/Cute-Girl-Picture-for-Profile-18.png" alt=""> -->
+    <p style="width:40mm !important">Lorem ipsum dolor, sit amet consectetur adipisicing elit. Officia illo quibusdam omnis! Non magnam illum culpa nobis perspiciatis eius ratione laudantium nesciunt exercitationem dolorum, excepturi aliquam impedit autem suscipit nostrum?</p>
+    <p>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Officia illo quibusdam omnis! Non magnam illum culpa nobis perspiciatis eius ratione laudantium nesciunt exercitationem dolorum, excepturi aliquam impedit autem suscipit nostrum?</p>
+    <p>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Officia illo quibusdam omnis! Non magnam illum culpa nobis perspiciatis eius ratione laudantium nesciunt exercitationem dolorum, excepturi aliquam impedit autem suscipit nostrum?</p>
+    <p>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Officia illo quibusdam omnis! Non magnam illum culpa nobis perspiciatis eius ratione laudantium nesciunt exercitationem dolorum, excepturi aliquam impedit autem suscipit nostrum?</p>
+    </div>
+    
+    
+    
+    <!-- <script src="jspdf.js"></script> -->
+    <script>
+        ;(function($){
+            $(document).ready(function(){
+                var doc = new jsPDF();
+                var elementHTML = $('#content').html();
+                var specialElementHandlers = {
+                    '#elementH': function (element, renderer) {
+                        return true;
+                    }
+                };
+                doc.fromHTML(elementHTML, 0, 0, {
+                    'width': 210,
+                    'elementHandlers': specialElementHandlers
+                }, function(){});
+                console.log(elementHTML);
+                doc.save('output.pdf');
+
+
+            })
+        })(jQuery);
+        
+    </script>
+</body>
+</html>
